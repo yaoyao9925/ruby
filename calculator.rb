@@ -3,7 +3,9 @@ def prompt(message)
 end
 
 def valid_number?(input)
-  Float(input) rescue false
+  Float(input)
+rescue StandardError
+  false
 end
 
 def operation_to_message(op)
