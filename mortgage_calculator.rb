@@ -45,7 +45,11 @@ loop do
   end
 end
 
-prompt("Hi, #{name}")
+if language == 'english'
+  prompt("Hi, #{name}")
+elsif language == 'chinese'
+  prompt("你好, #{name}")
+end
 
 loop do
   loan_amount = ''
@@ -82,9 +86,10 @@ loop do
     end
   end
 
-  monthly_payment = loan_amount.to_f() *
-    (monthly_interest_rate.to_f() / (1 - 
-    (1 + monthly_interest_rate.to_f())**(-loan_duration_in_months.to_f())))
+  monthly_payment = loan_amount.to_f() * 
+                    (monthly_interest_rate.to_f() / 
+                    (1 - (1 + monthly_interest_rate.to_f())**
+                    (-loan_duration_in_months.to_f())))
 
   prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
 
